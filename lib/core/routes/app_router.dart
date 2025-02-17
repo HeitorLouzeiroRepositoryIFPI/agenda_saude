@@ -12,6 +12,7 @@ final goRouter = GoRouter(
   initialLocation: '/',
   debugLogDiagnostics: true,
   routes: [
+    // Auth Routes
     GoRoute(
       path: '/',
       name: 'splash',
@@ -27,6 +28,7 @@ final goRouter = GoRouter(
       name: 'login',
       builder: (context, state) => const LoginView(),
     ),
+
     // Patient Routes
     GoRoute(
       path: '/home/patient',
@@ -37,7 +39,7 @@ final goRouter = GoRouter(
       path: '/schedule',
       name: 'schedule',
       builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Agenda')),
+        body: Center(child: Text('Minhas Consultas')),
       ),
     ),
     GoRoute(
@@ -48,17 +50,31 @@ final goRouter = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/profile',
-      name: 'profile',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Perfil')),
-      ),
-    ),
-    GoRoute(
       path: '/notifications',
       name: 'notifications',
       builder: (context, state) => const Scaffold(
         body: Center(child: Text('Notificações')),
+      ),
+    ),
+    GoRoute(
+      path: '/profile',
+      name: 'profile',
+      builder: (context, state) => const Scaffold(
+        body: Center(child: Text('Meu Perfil')),
+      ),
+    ),
+    GoRoute(
+      path: '/help',
+      name: 'help',
+      builder: (context, state) => const Scaffold(
+        body: Center(child: Text('Ajuda')),
+      ),
+    ),
+    GoRoute(
+      path: '/settings',
+      name: 'settings',
+      builder: (context, state) => const Scaffold(
+        body: Center(child: Text('Configurações')),
       ),
     ),
     GoRoute(
@@ -72,14 +88,14 @@ final goRouter = GoRouter(
       path: '/categories',
       name: 'categories',
       builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Todas as Categorias')),
+        body: Center(child: Text('Categorias')),
       ),
     ),
     GoRoute(
       path: '/appointments',
       name: 'appointments',
       builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Todas as Consultas')),
+        body: Center(child: Text('Consultas')),
       ),
     ),
     GoRoute(
@@ -91,6 +107,7 @@ final goRouter = GoRouter(
         ),
       ),
     ),
+
     // Professional Routes
     GoRoute(
       path: '/home/professional',
@@ -99,13 +116,14 @@ final goRouter = GoRouter(
         body: Center(child: Text('Professional Home')),
       ),
     ),
-    // Auth Routes
+
+    // Auth Related Routes
     GoRoute(
       path: '/forgot-password/:type',
       name: 'forgotPassword',
       builder: (context, state) => Scaffold(
         body: Center(
-          child: Text('Forgot Password - ${state.pathParameters['type']}'),
+          child: Text('Recuperar Senha - ${state.pathParameters['type']}'),
         ),
       ),
     ),
@@ -114,7 +132,7 @@ final goRouter = GoRouter(
       name: 'register',
       builder: (context, state) => Scaffold(
         body: Center(
-          child: Text('Register - ${state.pathParameters['type']}'),
+          child: Text('Cadastro - ${state.pathParameters['type']}'),
         ),
       ),
     ),

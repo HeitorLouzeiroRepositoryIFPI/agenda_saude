@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:agenda_saude/core/theme/app_colors.dart';
 import 'patient_home_viewmodel.dart';
 import 'package:provider/provider.dart';
+import 'widgets/patient_drawer.dart';
 
 class PatientHomeView extends StatelessWidget {
   const PatientHomeView({super.key});
@@ -14,6 +15,7 @@ class PatientHomeView extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             backgroundColor: AppColors.background,
+            drawer: const PatientDrawer(),
             body: SafeArea(
               child: Column(
                 children: [
@@ -35,15 +37,21 @@ class PatientHomeView extends StatelessWidget {
                         // Top bar with profile and notifications
                         Row(
                           children: [
-                            InkWell(
-                              onTap: () => viewModel.onProfileTab(),
-                              child: CircleAvatar(
-                                radius: 24,
-                                backgroundColor: AppColors.white.withOpacity(0.2),
-                                child: const Icon(
-                                  Icons.person_outline,
-                                  color: AppColors.white,
-                                  size: 28,
+                            // Wrap the menu button with Builder
+                            Builder(
+                              builder: (context) => InkWell(
+                                onTap: () => Scaffold.of(context).openDrawer(),
+                                child: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.white.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const Icon(
+                                    Icons.menu,
+                                    color: AppColors.white,
+                                    size: 24,
+                                  ),
                                 ),
                               ),
                             ),
@@ -297,7 +305,8 @@ class PatientHomeView extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Container(
           width: 110,
-          padding: const EdgeInsets.all(16),
+          height: 110,
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: BorderRadius.circular(16),

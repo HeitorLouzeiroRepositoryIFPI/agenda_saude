@@ -13,6 +13,13 @@ class PatientHomeViewModel extends ChangeNotifier {
     }
   }
 
+  // Mock user data
+  final Map<String, dynamic> userData = {
+    'name': 'João Silva',
+    'email': 'joao.silva@email.com',
+    'profileImage': null, // URL for profile image if available
+  };
+
   // Mock data for categories
   final List<Map<String, dynamic>> categories = [
     {
@@ -34,10 +41,6 @@ class PatientHomeViewModel extends ChangeNotifier {
     {
       'icon': Icons.visibility_outlined,
       'title': 'Oftalmologista',
-    },
-    {
-      'icon': Icons.elderly_outlined,
-      'title': 'Geriatra',
     },
   ];
 
@@ -64,70 +67,74 @@ class PatientHomeViewModel extends ChangeNotifier {
   // Navigation methods
   void onCategoryTap(int index) {
     final category = categories[index];
-    // TODO: Navigate to specialists list filtered by category
     debugPrint('Selected category: ${category['title']}');
   }
 
   void onAppointmentTap(int index) {
     final appointment = appointments[index];
-    // TODO: Navigate to appointment details
     debugPrint('Selected appointment: ${appointment['doctorName']}');
   }
 
   void onNotificationsTap() {
-    // TODO: Navigate to notifications
     debugPrint('Opening notifications');
   }
 
   void onSearchTap() {
-    // TODO: Navigate to search screen
     debugPrint('Opening search');
   }
 
   void onViewAllCategories() {
-    // TODO: Navigate to all categories
     debugPrint('Opening all categories');
   }
 
   void onViewAllAppointments() {
-    // TODO: Navigate to all appointments
     debugPrint('Opening all appointments');
   }
 
+  // Drawer navigation methods
+  void navigateToProfile(BuildContext context) {
+    context.go('/profile');
+  }
+
+  void navigateToAppointments(BuildContext context) {
+    context.go('/schedule');
+  }
+
+  void navigateToFavorites(BuildContext context) {
+    context.go('/favorites');
+  }
+
+  void navigateToNotifications(BuildContext context) {
+    context.go('/notifications');
+  }
+
+  void navigateToHelp(BuildContext context) {
+    context.go('/help');
+  }
+
+  void navigateToSettings(BuildContext context) {
+    context.go('/settings');
+  }
+
+  void logout(BuildContext context) {
+    // TODO: Implement proper logout logic
+    context.go('/login');
+  }
+
   // Bottom navigation methods
-  void onHomeTab() {
-    // Already on home
-  }
-
-  void onScheduleTab() {
-    // TODO: Navigate to schedule
-    debugPrint('Opening schedule');
-  }
-
-  void onFavoritesTab() {
-    // TODO: Navigate to favorites
-    debugPrint('Opening favorites');
-  }
-
-  void onProfileTab() {
-    // TODO: Navigate to profile
-    debugPrint('Opening profile');
-  }
-
-  // Handle bottom navigation
   void handleBottomNavigation(BuildContext context, int index) {
     switch (index) {
       case 0: // Home
-        onHomeTab();
+        context.go('/home/patient');
         break;
       case 1: // Schedule
-        context.push('/schedule');
+        context.go('/schedule');
         break;
       case 2: // Favorites
-        context.push('/favorites');
+        context.go('/favorites');
         break;
       case 3: // Profile
-        context.push('/profile');
+        context.go('/profile');
         break;
     }
     setCurrentIndex(index);
