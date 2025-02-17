@@ -13,13 +13,6 @@ class PatientHomeViewModel extends ChangeNotifier {
     }
   }
 
-  // Mock user data
-  final Map<String, dynamic> userData = {
-    'name': 'João Silva',
-    'email': 'joao.silva@email.com',
-    'profileImage': null, // URL for profile image if available
-  };
-
   // Mock data for categories
   final List<Map<String, dynamic>> categories = [
     {
@@ -80,45 +73,16 @@ class PatientHomeViewModel extends ChangeNotifier {
   }
 
   void onSearchTap() {
-    debugPrint('Opening search');
+    // Navigate to search results screen
+    context.push('/search');
   }
 
   void onViewAllCategories() {
-    debugPrint('Opening all categories');
+    context.push('/categories');
   }
 
   void onViewAllAppointments() {
-    debugPrint('Opening all appointments');
-  }
-
-  // Drawer navigation methods
-  void navigateToProfile(BuildContext context) {
-    context.go('/profile');
-  }
-
-  void navigateToAppointments(BuildContext context) {
-    context.go('/schedule');
-  }
-
-  void navigateToFavorites(BuildContext context) {
-    context.go('/favorites');
-  }
-
-  void navigateToNotifications(BuildContext context) {
-    context.go('/notifications');
-  }
-
-  void navigateToHelp(BuildContext context) {
-    context.go('/help');
-  }
-
-  void navigateToSettings(BuildContext context) {
-    context.go('/settings');
-  }
-
-  void logout(BuildContext context) {
-    // TODO: Implement proper logout logic
-    context.go('/login');
+    context.push('/appointments');
   }
 
   // Bottom navigation methods
@@ -138,5 +102,12 @@ class PatientHomeViewModel extends ChangeNotifier {
         break;
     }
     setCurrentIndex(index);
+  }
+
+  // Late initialize context
+  late BuildContext context;
+
+  void init(BuildContext context) {
+    this.context = context;
   }
 }

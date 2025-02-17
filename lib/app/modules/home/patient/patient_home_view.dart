@@ -10,7 +10,11 @@ class PatientHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => PatientHomeViewModel(),
+      create: (_) {
+        final viewModel = PatientHomeViewModel();
+        viewModel.init(context);
+        return viewModel;
+      },
       child: Consumer<PatientHomeViewModel>(
         builder: (context, viewModel, child) {
           return Scaffold(
@@ -37,7 +41,7 @@ class PatientHomeView extends StatelessWidget {
                         // Top bar with profile and notifications
                         Row(
                           children: [
-                            // Wrap the menu button with Builder
+                            // Menu button
                             Builder(
                               builder: (context) => InkWell(
                                 onTap: () => Scaffold.of(context).openDrawer(),

@@ -4,6 +4,7 @@ import '../../app/modules/splash/splash_view.dart';
 import '../../app/modules/pre_login/pre_login_view.dart';
 import '../../app/modules/login/login_view.dart';
 import '../../app/modules/home/patient/patient_home_view.dart';
+import '../../app/modules/search/search_results_view.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -34,6 +35,20 @@ final goRouter = GoRouter(
       path: '/home/patient',
       name: 'patientHome',
       builder: (context, state) => const PatientHomeView(),
+    ),
+    GoRoute(
+      path: '/search',
+      name: 'searchResults',
+      builder: (context, state) => const SearchResultsView(),
+    ),
+    GoRoute(
+      path: '/doctor/:id',
+      name: 'doctorProfile',
+      builder: (context, state) => Scaffold(
+        body: Center(
+          child: Text('Perfil do Médico ${state.pathParameters['id']}'),
+        ),
+      ),
     ),
     GoRoute(
       path: '/schedule',
@@ -75,13 +90,6 @@ final goRouter = GoRouter(
       name: 'settings',
       builder: (context, state) => const Scaffold(
         body: Center(child: Text('Configurações')),
-      ),
-    ),
-    GoRoute(
-      path: '/search',
-      name: 'search',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Buscar Profissionais')),
       ),
     ),
     GoRoute(
