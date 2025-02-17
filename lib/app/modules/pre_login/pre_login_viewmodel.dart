@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PreLoginViewModel extends ChangeNotifier {
   void onLoginPressed(BuildContext context) {
-    // TODO: Navigate to login screen
-    // Navigator.push(context, MaterialPageRoute(builder: (_) => LoginView()));
+    context.goNamed('professionalLogin');
   }
 
   void onRegisterPressed(BuildContext context) {
-    // TODO: Navigate to register screen
-    // Navigator.push(context, MaterialPageRoute(builder: (_) => RegisterView()));
+    context.goNamed('patientLogin');
   }
 }
