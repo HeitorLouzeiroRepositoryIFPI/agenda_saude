@@ -25,33 +25,24 @@ class LoginViewModel extends ChangeNotifier {
 
   Future<void> login(BuildContext context) async {
     if (formKey.currentState?.validate() ?? false) {
-      // TODO: Implement login logic based on userType
+      // TODO: Implement actual login logic
+      // For now, just navigate based on user type
       if (userType == UserType.patient) {
-        // Navigate to patient home
         context.go('/home/patient');
       } else {
-        // Navigate to professional home
         context.go('/home/professional');
       }
     }
   }
 
   void onForgotPasswordPressed(BuildContext context) {
-    // TODO: Navigate to forgot password screen based on userType
-    if (userType == UserType.patient) {
-      context.push('/forgot-password/patient');
-    } else {
-      context.push('/forgot-password/professional');
-    }
+    final type = userType == UserType.patient ? 'patient' : 'professional';
+    context.push('/forgot-password/$type');
   }
 
   void onRegisterPressed(BuildContext context) {
-    // TODO: Navigate to register screen based on userType
-    if (userType == UserType.patient) {
-      context.push('/register/patient');
-    } else {
-      context.push('/register/professional');
-    }
+    final type = userType == UserType.patient ? 'patient' : 'professional';
+    context.push('/register/$type');
   }
 
   @override
