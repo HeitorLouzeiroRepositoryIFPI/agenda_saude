@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../pre_login/pre_login_view.dart';
 import '../../../main.dart';
 
 class SplashViewModel extends ChangeNotifier {
-  SplashViewModel() {
+  late BuildContext context;
+
+  SplashViewModel(this.context) {
     _init();
   }
 
@@ -16,9 +19,7 @@ class SplashViewModel extends ChangeNotifier {
   }
 
   void navigateToPreLogin() {
-    // Using root navigator to replace the splash screen
-    Navigator.of(navigatorKey.currentContext!, rootNavigator: true).pushReplacement(
-      MaterialPageRoute(builder: (_) => const PreLoginView()),
-    );
+    // Using GoRouter to navigate to pre-login
+    context.goNamed('preLogin');
   }
 }
