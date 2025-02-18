@@ -8,6 +8,8 @@ import '../../app/modules/home/patient/patient_home_view.dart';
 import '../../app/modules/search/search_results_view.dart';
 import '../../app/modules/appointment/appointment_screen.dart';
 import '../../app/modules/appointment/appointment_confirmation_screen.dart';
+import '../../app/modules/appointments/my_appointments_screen.dart';
+import '../../app/modules/appointments/appointment_details_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -101,9 +103,7 @@ final goRouter = GoRouter(
     GoRoute(
       path: '/appointments',
       name: 'appointments',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Consultas')),
-      ),
+      builder: (context, state) => const MyAppointmentsScreen(),
     ),
     GoRoute(
       path: '/schedule-appointment/:doctorId',
@@ -118,10 +118,8 @@ final goRouter = GoRouter(
     GoRoute(
       path: '/appointment/:id',
       name: 'appointmentDetails',
-      builder: (context, state) => Scaffold(
-        body: Center(
-          child: Text('Detalhes da Consulta ${state.pathParameters['id']}'),
-        ),
+      builder: (context, state) => AppointmentDetailsScreen(
+        id: state.pathParameters['id']!,
       ),
     ),
 

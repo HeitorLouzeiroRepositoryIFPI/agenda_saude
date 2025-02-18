@@ -92,7 +92,7 @@ class PatientHomeViewModel extends ChangeNotifier {
         context.go('/home/patient');
         break;
       case 1: // Schedule
-        context.go('/schedule');
+        context.go('/appointments');
         break;
       case 2: // Favorites
         context.go('/favorites');
