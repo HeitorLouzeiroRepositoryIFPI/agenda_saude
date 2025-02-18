@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../theme/app_colors.dart';
 import '../../app/modules/splash/splash_view.dart';
 import '../../app/modules/professional_profile/perfil_profissional_page.dart';
 import '../../app/modules/pre_login/pre_login_view.dart';
@@ -10,6 +11,7 @@ import '../../app/modules/appointment/appointment_screen.dart';
 import '../../app/modules/appointment/appointment_confirmation_screen.dart';
 import '../../app/modules/appointments/my_appointments_screen.dart';
 import '../../app/modules/appointments/appointment_details_screen.dart';
+import '../../app/core/widgets/base_screen_layout.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -52,52 +54,147 @@ final goRouter = GoRouter(
       builder: (context, state) => const PerfilProfissionalPage(),
     ),
     GoRoute(
-      path: '/schedule',
-      name: 'schedule',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Minhas Consultas')),
-      ),
-    ),
-    GoRoute(
-      path: '/favorites',
-      name: 'favorites',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Favoritos')),
-      ),
-    ),
-    GoRoute(
       path: '/notifications',
       name: 'notifications',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Notificações')),
+      builder: (context, state) => BaseScreenLayout(
+        currentIndex: -1,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          elevation: 0,
+          title: Text(
+            'Notificações',
+            style: TextStyle(
+              color: AppColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: const Center(child: Text('Notificações')),
       ),
     ),
     GoRoute(
-      path: '/profile',
-      name: 'profile',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Meu Perfil')),
+      path: '/profile/edit',
+      name: 'editProfile',
+      builder: (context, state) => BaseScreenLayout(
+        currentIndex: 3,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          elevation: 0,
+          title: Text(
+            'Editar Perfil',
+            style: TextStyle(
+              color: AppColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: const Center(child: Text('Editar Perfil')),
+      ),
+    ),
+    GoRoute(
+      path: '/receipts',
+      name: 'receipts',
+      builder: (context, state) => BaseScreenLayout(
+        currentIndex: -1,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          elevation: 0,
+          title: Text(
+            'Recibos de Pagamento',
+            style: TextStyle(
+              color: AppColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: const Center(child: Text('Recibos de Pagamento')),
+      ),
+    ),
+    GoRoute(
+      path: '/prescriptions',
+      name: 'prescriptions',
+      builder: (context, state) => BaseScreenLayout(
+        currentIndex: -1,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          elevation: 0,
+          title: Text(
+            'Minhas Receitas',
+            style: TextStyle(
+              color: AppColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: const Center(child: Text('Minhas Receitas')),
+      ),
+    ),
+    GoRoute(
+      path: '/exams',
+      name: 'exams',
+      builder: (context, state) => BaseScreenLayout(
+        currentIndex: -1,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          elevation: 0,
+          title: Text(
+            'Exames Solicitados',
+            style: TextStyle(
+              color: AppColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: const Center(child: Text('Exames Solicitados')),
       ),
     ),
     GoRoute(
       path: '/help',
       name: 'help',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Ajuda')),
-      ),
-    ),
-    GoRoute(
-      path: '/settings',
-      name: 'settings',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Configurações')),
-      ),
-    ),
-    GoRoute(
-      path: '/categories',
-      name: 'categories',
-      builder: (context, state) => const Scaffold(
-        body: Center(child: Text('Categorias')),
+      builder: (context, state) => BaseScreenLayout(
+        currentIndex: -1,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          elevation: 0,
+          title: Text(
+            'Ajuda',
+            style: TextStyle(
+              color: AppColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: const Center(child: Text('Ajuda')),
       ),
     ),
     GoRoute(

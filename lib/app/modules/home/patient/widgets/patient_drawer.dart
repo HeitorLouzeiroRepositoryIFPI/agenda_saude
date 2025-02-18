@@ -72,40 +72,35 @@ class PatientDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 _buildMenuItem(
-                  icon: Icons.home_outlined,
-                  title: 'Início',
-                  onTap: () => context.go('/home/patient'),
+                  icon: Icons.person_outline,
+                  title: 'Editar Perfil',
+                  onTap: () => context.go('/profile/edit'),
                 ),
                 _buildMenuItem(
-                  icon: Icons.calendar_today_outlined,
-                  title: 'Minhas Consultas',
-                  onTap: () => context.go('/schedule'),
+                  icon: Icons.receipt_long_outlined,
+                  title: 'Recibos de Pagamento',
+                  onTap: () => context.go('/receipts'),
                 ),
                 _buildMenuItem(
-                  icon: Icons.favorite_border,
-                  title: 'Favoritos',
-                  onTap: () => context.go('/favorites'),
+                  icon: Icons.medical_information_outlined,
+                  title: 'Minhas Receitas',
+                  onTap: () => context.go('/prescriptions'),
+                ),
+                _buildMenuItem(
+                  icon: Icons.assignment_outlined,
+                  title: 'Exames Solicitados',
+                  onTap: () => context.go('/exams'),
                 ),
                 _buildMenuItem(
                   icon: Icons.notifications_outlined,
                   title: 'Notificações',
                   onTap: () => context.go('/notifications'),
                 ),
-                _buildMenuItem(
-                  icon: Icons.person_outline,
-                  title: 'Meu Perfil',
-                  onTap: () => context.go('/profile'),
-                ),
                 const Divider(height: 1),
                 _buildMenuItem(
                   icon: Icons.help_outline,
                   title: 'Ajuda',
                   onTap: () => context.go('/help'),
-                ),
-                _buildMenuItem(
-                  icon: Icons.settings_outlined,
-                  title: 'Configurações',
-                  onTap: () => context.go('/settings'),
                 ),
                 _buildMenuItem(
                   icon: Icons.exit_to_app,

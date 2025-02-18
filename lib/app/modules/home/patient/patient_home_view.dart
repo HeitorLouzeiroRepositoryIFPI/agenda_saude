@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:agenda_saude/core/theme/app_colors.dart';
 import 'patient_home_viewmodel.dart';
 import 'package:provider/provider.dart';
+import '../../../core/widgets/base_screen_layout.dart';
+import 'patient_home_viewmodel.dart';
 import 'widgets/patient_drawer.dart';
 
 class PatientHomeView extends StatelessWidget {
@@ -17,8 +19,15 @@ class PatientHomeView extends StatelessWidget {
       },
       child: Consumer<PatientHomeViewModel>(
         builder: (context, viewModel, child) {
-          return Scaffold(
-            backgroundColor: AppColors.background,
+          return BaseScreenLayout(
+            currentIndex: 0,
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(0),
+              child: AppBar(
+                backgroundColor: AppColors.primary,
+                elevation: 0,
+              ),
+            ),
             drawer: const PatientDrawer(),
             body: SafeArea(
               child: Column(
@@ -236,57 +245,6 @@ class PatientHomeView extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ),
-            bottomNavigationBar: Container(
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 10,
-                    offset: const Offset(0, -5),
-                  ),
-                ],
-              ),
-              child: BottomNavigationBar(
-                currentIndex: viewModel.currentIndex,
-                onTap: (index) => viewModel.handleBottomNavigation(context, index),
-                selectedItemColor: AppColors.primary,
-                unselectedItemColor: AppColors.textSecondary,
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                type: BottomNavigationBarType.fixed,
-                selectedLabelStyle: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                ),
-                unselectedLabelStyle: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                ),
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home_outlined),
-                    activeIcon: Icon(Icons.home),
-                    label: 'Início',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.calendar_today_outlined),
-                    activeIcon: Icon(Icons.calendar_today),
-                    label: 'Agenda',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.favorite_border),
-                    activeIcon: Icon(Icons.favorite),
-                    label: 'Favoritos',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outline),
-                    activeIcon: Icon(Icons.person),
-                    label: 'Perfil',
                   ),
                 ],
               ),
