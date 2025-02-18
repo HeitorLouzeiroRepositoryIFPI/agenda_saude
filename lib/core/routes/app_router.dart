@@ -12,6 +12,7 @@ import '../../app/modules/appointment/appointment_confirmation_screen.dart';
 import '../../app/modules/appointments/my_appointments_screen.dart';
 import '../../app/modules/appointments/appointment_details_screen.dart';
 import '../../app/core/widgets/base_screen_layout.dart';
+import '../../app/modules/favorites/favorites_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -171,6 +172,14 @@ final goRouter = GoRouter(
           ),
         ),
         body: const Center(child: Text('Exames Solicitados')),
+      ),
+    ),
+    GoRoute(
+      path: '/favorites',
+      name: 'favorites',
+      builder: (context, state) => const BaseScreenLayout(
+        currentIndex: 2,
+        body: FavoritesPage(),
       ),
     ),
     GoRoute(
