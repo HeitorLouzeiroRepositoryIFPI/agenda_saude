@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BotaoAgendar extends StatelessWidget {
   const BotaoAgendar({super.key});
@@ -10,7 +11,8 @@ class BotaoAgendar extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          // Implementar navegação para tela de agendamento
+          // Navigate to appointment screen with the current doctor's ID
+          context.go('/schedule-appointment/1'); // Using a dummy ID for now
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF4CAF50),
