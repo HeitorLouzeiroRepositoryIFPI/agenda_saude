@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../app/modules/splash/splash_view.dart';
+import '../../app/modules/professional_profile/perfil_profissional_page.dart';
 import '../../app/modules/pre_login/pre_login_view.dart';
 import '../../app/modules/login/login_view.dart';
 import '../../app/modules/home/patient/patient_home_view.dart';
@@ -44,11 +45,7 @@ final goRouter = GoRouter(
     GoRoute(
       path: '/doctor/:id',
       name: 'doctorProfile',
-      builder: (context, state) => Scaffold(
-        body: Center(
-          child: Text('Perfil do Médico ${state.pathParameters['id']}'),
-        ),
-      ),
+      builder: (context, state) => const PerfilProfissionalPage(),
     ),
     GoRoute(
       path: '/schedule',
