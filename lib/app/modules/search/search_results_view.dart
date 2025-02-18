@@ -24,16 +24,16 @@ class SearchResultsView extends StatelessWidget {
               title: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.2),
+                  color: AppColors.text.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextField(
                   controller: viewModel.searchController,
-                  style: const TextStyle(color: AppColors.white),
+                  style: const TextStyle(color: AppColors.text),
                   decoration: InputDecoration(
                     hintText: 'Buscar profissionais',
-                    hintStyle: TextStyle(color: AppColors.white.withOpacity(0.7)),
-                    prefixIcon: const Icon(Icons.search, color: AppColors.white),
+                    hintStyle: TextStyle(color: AppColors.text.withOpacity(0.7)),
+                    prefixIcon: const Icon(Icons.search, color: AppColors.text),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   ),
