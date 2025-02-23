@@ -58,6 +58,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Agenda'),
             onTap: () {
               context.go('/professional/schedule');
+              Navigator.pop(context); // Close drawer
             },
           ),
           ListTile(
@@ -65,6 +66,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Lista de Pacientes'),
             onTap: () {
               context.go('/professional/patients');
+              Navigator.pop(context); // Close drawer
             },
           ),
           ListTile(
@@ -72,6 +74,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Relatórios'),
             onTap: () {
               context.go('/professional/reports');
+              Navigator.pop(context); // Close drawer
             },
           ),
           ListTile(
@@ -79,6 +82,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Enviar Link'),
             onTap: () {
               context.go('/professional/send-link');
+              Navigator.pop(context); // Close drawer
             },
           ),
           const Divider(),
@@ -87,6 +91,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Configurações'),
             onTap: () {
               context.go('/professional/settings');
+              Navigator.pop(context); // Close drawer
             },
           ),
           ListTile(
@@ -94,6 +99,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Ajuda'),
             onTap: () {
               context.go('/professional/help');
+              Navigator.pop(context); // Close drawer
             },
           ),
           ListTile(
@@ -101,6 +107,7 @@ class ProfessionalDrawer extends StatelessWidget {
             title: const Text('Sair'),
             onTap: () {
               context.go('/pre-login');
+              Navigator.pop(context); // Close drawer
             },
           ),
         ],

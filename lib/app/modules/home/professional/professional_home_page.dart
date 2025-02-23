@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../core/widgets/professional_base_screen_layout.dart';
 import 'widgets/professional_drawer.dart';
@@ -119,7 +120,7 @@ class ProfessionalHomePage extends StatelessWidget {
                     icon: Icons.bar_chart,
                     title: 'Relatórios',
                     onTap: () {
-                      // TODO: Navigate to Reports
+                      context.go('/professional/reports');
                     },
                   ),
                   _buildMenuCard(
