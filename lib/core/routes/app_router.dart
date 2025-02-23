@@ -17,6 +17,8 @@ import '../../app/modules/home/patient/profile/profile_edit_view.dart';
 import '../../app/modules/home/professional/professional_home_page.dart';
 import '../../app/modules/professional/schedule/professional_schedule_page.dart';
 import '../../app/modules/professional/patients/professional_patients_page.dart';
+import '../../app/modules/professional/patient_details/patient_documents_page.dart';
+import '../../app/modules/professional/profile/professional_profile_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -244,6 +246,19 @@ final goRouter = GoRouter(
       path: '/professional/patients',
       name: 'professionalPatients',
       builder: (context, state) => const ProfessionalPatientsPage(),
+    ),
+    GoRoute(
+      path: '/professional/patient/:id',
+      name: 'patientDocuments',
+      builder: (context, state) => PatientDocumentsPage(
+        patientId: state.pathParameters['id'] ?? '',
+        patientName: state.extra as String? ?? 'Paciente',
+      ),
+    ),
+    GoRoute(
+      path: '/professional/profile',
+      name: 'professionalProfile',
+      builder: (context, state) => const ProfessionalProfilePage(),
     ),
 
     // Auth Related Routes

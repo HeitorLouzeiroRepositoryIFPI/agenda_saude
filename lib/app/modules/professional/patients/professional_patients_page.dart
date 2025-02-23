@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../core/widgets/professional_base_screen_layout.dart';
 import '../../home/professional/widgets/professional_drawer.dart';
@@ -119,12 +120,16 @@ class ProfessionalPatientsPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 itemCount: 10, // Example patients
                 itemBuilder: (context, index) {
+                  const patientName = 'Maria Silva';
                   return _buildPatientCard(
-                    name: 'Maria Silva',
+                    name: patientName,
                     lastAppointment: '10/03/2024',
                     nextAppointment: '24/03/2024',
                     onTap: () {
-                      // TODO: Navigate to patient details
+                      context.go(
+                        '/professional/patient/$index',
+                        extra: patientName,
+                      );
                     },
                   );
                 },
