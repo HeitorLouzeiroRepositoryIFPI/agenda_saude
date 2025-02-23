@@ -127,7 +127,7 @@ class ProfessionalHomePage extends StatelessWidget {
                     icon: Icons.link,
                     title: 'Enviar Link',
                     onTap: () {
-                      // TODO: Navigate to Send Link
+                      context.go('/professional/send-link');
                     },
                   ),
                 ],

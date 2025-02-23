@@ -20,6 +20,7 @@ import '../../app/modules/professional/patients/professional_patients_page.dart'
 import '../../app/modules/professional/patient_details/patient_documents_page.dart';
 import '../../app/modules/professional/profile/professional_profile_page.dart';
 import '../../app/modules/professional/reports/professional_reports_page.dart';
+import '../../app/modules/professional/send_link/send_link_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -265,6 +266,11 @@ final goRouter = GoRouter(
       path: '/professional/reports',
       name: 'professionalReports',
       builder: (context, state) => const ProfessionalReportsPage(),
+    ),
+    GoRoute(
+      path: '/professional/send-link',
+      name: 'sendLink',
+      builder: (context, state) => const SendLinkPage(),
     ),
 
     // Auth Related Routes
