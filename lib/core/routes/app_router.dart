@@ -13,6 +13,7 @@ import '../../app/modules/appointments/my_appointments_screen.dart';
 import '../../app/modules/appointments/appointment_details_screen.dart';
 import '../../app/core/widgets/base_screen_layout.dart';
 import '../../app/modules/favorites/favorites_page.dart';
+import '../../app/modules/home/patient/profile/profile_edit_view.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -79,27 +80,23 @@ final goRouter = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/profile/edit',
-      name: 'editProfile',
+      path: '/profile',
+      name: 'profile',
       builder: (context, state) => BaseScreenLayout(
         currentIndex: 3,
         appBar: AppBar(
           backgroundColor: AppColors.white,
           elevation: 0,
           title: Text(
-            'Editar Perfil',
+            'Perfil',
             style: TextStyle(
               color: AppColors.text,
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
           ),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: AppColors.text),
-            onPressed: () => context.pop(),
-          ),
         ),
-        body: const Center(child: Text('Editar Perfil')),
+        body: const ProfileEditView(),
       ),
     ),
     GoRoute(
