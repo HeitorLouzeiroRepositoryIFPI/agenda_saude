@@ -72,11 +72,6 @@ class PatientDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 _buildMenuItem(
-                  icon: Icons.person_outline,
-                  title: 'Editar Perfil',
-                  onTap: () => context.go('/profile/edit'),
-                ),
-                _buildMenuItem(
                   icon: Icons.receipt_long_outlined,
                   title: 'Recibos de Pagamento',
                   onTap: () => context.go('/receipts'),
