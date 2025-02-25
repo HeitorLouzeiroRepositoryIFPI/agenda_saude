@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:agenda_saude/core/theme/app_colors.dart';
-import 'package:agenda_saude/core/routes/app_router.dart';
+import 'core/theme/app_colors.dart';
+import 'core/routes/app_router.dart';
+import 'core/graphql/hasura_connect.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize HasuraConnect
+  HasuraConfig.initialize();
 
   // Set preferred orientations to portrait only
   SystemChrome.setPreferredOrientations([

@@ -25,11 +25,16 @@ class PatientModel {
 
   factory PatientModel.fromJson(Map<String, dynamic> json) {
     return PatientModel(
-      name: json['name'],
-      email: json['email'],
-      cpf: json['cpf'],
-      phone: json['phone'],
-      password: json['password'],
+      name: json['name'] as String,
+      email: json['email'] as String,
+      cpf: json['cpf'] as String,
+      phone: json['phone'] as String,
+      password: json['password'] as String,
     );
+  }
+
+  @override
+  String toString() {
+    return 'PatientModel(name: $name, email: $email, cpf: $cpf, phone: $phone)';
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../model/patient_model.dart';
+import '../repository/patient_repository.dart';
 
 class PatientRegistrationViewModel extends ChangeNotifier {
+  final _repository = PatientRepository();
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final emailController = TextEditingController();
@@ -95,15 +97,13 @@ class PatientRegistrationViewModel extends ChangeNotifier {
       final patient = PatientModel(
         name: nameController.text,
         email: emailController.text,
-        cpf: cpfController.text,
-        phone: phoneController.text,
+        cpf: cpfController.text.replaceAll(RegExp(r'[^\d]'), ''),
+        phone: phoneController.text.replaceAll(RegExp(r'[^\d]'), ''),
         password: passwordController.text,
       );
 
-      // TODO: Implement API call to register patient
-      await Future.delayed(const Duration(seconds: 2)); // Simulating API call
-
-      return true;
+      final success = await _repository.registerPatient(patient);
+      return success;
     } catch (e) {
       setErrorMessage('Erro ao cadastrar paciente: $e');
       return false;
