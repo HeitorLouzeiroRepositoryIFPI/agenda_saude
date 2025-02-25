@@ -69,9 +69,7 @@ class PatientLoginView extends StatelessWidget {
                         prefixIcon: const Icon(Icons.lock_outline),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            viewModel.isPasswordVisible
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                            viewModel.isPasswordVisible ? Icons.visibility_off : Icons.visibility,
                           ),
                           onPressed: viewModel.togglePasswordVisibility,
                         ),
@@ -94,9 +92,7 @@ class PatientLoginView extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: viewModel.isLoading
-                          ? null
-                          : () => viewModel.onLoginPressed(context),
+                      onPressed: viewModel.isLoading ? null : () => viewModel.onLoginPressed(context),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary,
                         foregroundColor: AppColors.white,
@@ -111,8 +107,7 @@ class PatientLoginView extends StatelessWidget {
                               width: 20,
                               child: CircularProgressIndicator(
                                 strokeWidth: 2,
-                                valueColor:
-                                    AlwaysStoppedAnimation<Color>(AppColors.white),
+                                valueColor: AlwaysStoppedAnimation<Color>(AppColors.white),
                               ),
                             )
                           : const Text(

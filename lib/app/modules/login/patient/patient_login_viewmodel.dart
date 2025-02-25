@@ -4,7 +4,7 @@ import '../../../core/theme/app_colors.dart';
 class PatientLoginViewModel extends ChangeNotifier {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -38,7 +38,7 @@ class PatientLoginViewModel extends ChangeNotifier {
     try {
       // TODO: Implement login logic
       await Future.delayed(const Duration(seconds: 2)); // Simulate API call
-      
+
       // Navigate to home screen on success
       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeView()));
     } catch (e) {
