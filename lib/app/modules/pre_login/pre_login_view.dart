@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/routes/route_paths.dart';
 
 class PreLoginView extends StatelessWidget {
   const PreLoginView({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class PreLoginView extends StatelessWidget {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  context.go('/login');
+                  context.go(RoutePaths.login);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
@@ -63,7 +64,28 @@ class PreLoginView extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Começar',
+                  'Entrar',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              OutlinedButton(
+                onPressed: () {
+                  context.go(RoutePaths.patientRegistration);
+                },
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppColors.primary,
+                  side: const BorderSide(color: AppColors.primary),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: const Text(
+                  'Criar conta',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
