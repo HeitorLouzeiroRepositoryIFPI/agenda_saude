@@ -25,8 +25,7 @@ class LoginViewModel extends ChangeNotifier {
 
   Future<void> login(BuildContext context) async {
     if (formKey.currentState?.validate() ?? false) {
-      // TODO: Implement actual login logic
-      // For now, just navigate based on user type
+      // TODO: Implementando login
       if (userType == UserType.patient) {
         context.go('/home/patient');
       } else {
@@ -41,8 +40,7 @@ class LoginViewModel extends ChangeNotifier {
   }
 
   void onRegisterPressed(BuildContext context) {
-    final type = userType == UserType.patient ? 'patient' : 'professional';
-    context.push('/register/$type');
+    context.push('/register');
   }
 
   @override
